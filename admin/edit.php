@@ -1,4 +1,5 @@
 <?php
+
 include '../includes/editData.php';
 
 ?>
@@ -44,7 +45,11 @@ include '../includes/editData.php';
 						</div>
 						<div class="form-group">
 							<label for="user">Status</label>
-							<input id="txtStatus" type="text" value='<?=$res['status'] ?>' name="status_task" class="form-control" placeholder="Input a status" autocomplete="off">
+							<p><input id="txtStatus" type="checkbox" value='Completed' name="status_task" class="form-check" style="display: inline; margin: 0 18px 0 0;">Completed</p>
+							<p><input id="txtStatus" type="checkbox" value='Edited by admin' name="status_task" class="form-check" style="display: inline; margin: 0 18px 0 0;">Edited by admin</p>
+						</div>
+						<div class="form-group">
+							<input id="txtID" type="hidden" value='<?=$res['id']?>' name="id" class="form-check">
 						</div>	
 						<div class="form-group">
 							<input type="submit" name="submit" class="btn btn-primary" id="EditSubmit" value="Send">
@@ -56,51 +61,5 @@ include '../includes/editData.php';
 	</div>
 	<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 	<script src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'></script>
-	<script>
-		$(document).ready(function() {
-			$('#EditSubmit').click(function(e) {
-				e.preventDefault();
-				var username = $('#txtUsername').val();
-				var email = $('#txtEmail').val();
-				var textTodo = $('#txtText').val();
-				var status = $('#txtStatus').val();
-
-				if (username.length < 1) {
-					$('#txtUsername').after('<span class="error">This field is required</span>');
-				}
-
-				if (email.length < 1) {
-					$('#txtEmail').after('<span class="error">This field is required</span>');
-				}
-
-				if (textTodo.length < 1) {
-					$('#txtText').after('<span class="error">This field is required</span>');
-				}
-
-				if (status.length < 1) {
-					$('#txtStatus').after('<span class="error">This field is required</span>');
-				}
-
-				if (username == '' && email == '' && textTodo == '' && status == '') {
-					$('#EditSubmit').after('<span class="error">All fields is required</span>');
-				} else {
-					$.ajax({
-						url: "includes/editData.php",
-						method: "POST",
-						data: {
-							username: username,
-							email: email,
-							text: textTodo,
-							status: status
-						},
-						success: function(data) {
-							$('form').trigger('reset');
-							$('#EditSubmit').after('<span class="text-success">The data is completed.</span>');
-						}
-					});
-				}
-			});
-		});
-	</script>
 </body>
 </html>

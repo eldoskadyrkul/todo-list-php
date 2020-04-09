@@ -79,7 +79,9 @@ if(isset($_SESSION['ID_USER']))    {
 										echo "<td><span class='text-success'>".$row['status']."</span></td>";										
 									} else if ($row['status'] == 'Uncompleted') {
 										echo "<td><span class='text-danger'>".$row['status']."</span></td>";
-									}	
+									} else if ($row['status'] == "Edited by admin") {
+										echo "<td><span class='text-primary'>".$row['status']."</span></td>";
+									}
 									echo "<td><a href='edit.php?task_id=".$row['id']."'><span class='fas fa-edit'></span></a></td>";								
 								echo "</tr>";
 							 }
