@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Panton-Regular';
+    src: url('../fonts/Panton-Regular.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Panton-Black';
+    src: url('../fonts/Panton-Black.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'Panton-Bold';
+    src: url('../fonts/Panton-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'Panton-ExtraBold';
+    src: url('../fonts/Panton-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Panton-SemiBold';
+    src: url('../fonts/Panton-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
