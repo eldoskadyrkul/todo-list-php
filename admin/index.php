@@ -87,7 +87,9 @@ if(isset($_SESSION['ID_USER']))    {
 							 }
 							?>							
 						</tbody>
-					</table>
+					</table>					
+					<input id="offset" type="hidden" value="<?=$offset; ?>">
+					<input id="total_records_page" type="hidden" value="<?=$total_records_page; ?>">
 					<ul id="pagination" class="pagination">
 						<?php if ($page_no > 1) { echo "<li class='page-item'><a class='page-link' href='?page_no=1'>First Page</a></li>"; } ?>
 						<li class='page-item' <?php if ($page_no <= 1) { echo "class='disabled'";	} ?>>
@@ -123,6 +125,8 @@ if(isset($_SESSION['ID_USER']))    {
 		$(document).on('click', '.column-sort', function() {
 			var column_name = $(this).attr("id");
 			var order = $(this).data("order");
+			var offset = $('#offset').val();
+			var total_records_page = $('#total_records_page').val();
 			var arrow = '';
 			if (order == 'desc') {
 				arrow = '&nbsp;<span class="fas fa-angle-down"></span>';
@@ -130,7 +134,7 @@ if(isset($_SESSION['ID_USER']))    {
 				arrow = '&nbsp;<span class="fas fa-angle-up"></span>';
 			}
 			$.ajax({
-				url: "includes/sort.php",
+				url: "../includes/sort.php",
 				method: "POST",
 				data: {
 					column_name: column_name, 
